@@ -1,122 +1,150 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Multi Page App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glass Service</title>
 
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #111;
-  }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #333;
+    }
 
-  /* top menu */
-  .menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 10px;
-    background: #1c1c1c;
-  }
+    header {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
 
-  .menu button {
-    padding: 8px 12px;
-    border: 0;
-    background: #333;
-    color: white;
-    cursor: pointer;
-    border-radius: 6px;
-  }
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+    }
 
-  .menu button:hover {
-    background: #555;
-  }
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
 
-  /* iframe area */
-  iframe {
-    width: 100%;
-    height: calc(100vh - 110px);
-    border: none;
-    background: white;
-  }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #00c6ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
 
-  /* bottom control bar */
-  .bottom-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background: #1c1c1c;
-    padding: 10px;
-  }
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-  .bottom-bar button {
-    flex: 1;
-    margin: 0 5px;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    background: #444;
-    color: white;
-    cursor: pointer;
-  }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-  .bottom-bar button:hover {
-    background: #666;
-  }
-</style>
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #0f2027;
+    }
+
+    .contact {
+      background: #203a43;
+      color: white;
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 12px;
+      background: #00c6ff;
+      border: none;
+      color: white;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0f2027;
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- MENU -->
-<div class="menu">
-  <button onclick="openPage('index.html')">Home</button>
-  <button onclick="openPage('calc.html')">Calc</button>
-  <button onclick="openPage('face.html')">Face</button>
-  <button onclick="openPage('facescanner.html')">Scanner</button>
-  <button onclick="openPage('glass.html')">Glass</button>
-  <button onclick="openPage('hotel.html')">Hotel</button>
-  <button onclick="openPage('ime.html')">IME</button>
-  <button onclick="openPage('info.html')">Info</button>
-  <button onclick="openPage('profile.html')">Profile</button>
-  <button onclick="openPage('test.html')">Test</button>
-  <button onclick="openPage('busyarea.html')">Busy</button>
-</div>
+<header>
+  <h1>Glass Service</h1>
+  <p>Oyna o‘rnatish • Tozalash • Ta’mirlash</p>
+  <a href="#contact" class="btn">Bog‘lanish</a>
+</header>
 
-<!-- IFRAME -->
-<iframe id="frame" src="index.html"></iframe>
+<section>
+  <h2>Xizmatlar</h2>
+  <div class="services">
 
-<!-- BOTTOM BAR -->
-<div class="bottom-bar">
-  <button onclick="goBack()">⬅ Back</button>
-  <button onclick="refreshPage()">🔄 Refresh</button>
-  <button onclick="closePage()">✖ Close</button>
-</div>
+    <div class="card">
+      <h3>Oyna o‘rnatish</h3>
+      <p>Uy va ofis uchun professional o‘rnatish xizmatlari.</p>
+    </div>
 
-<script>
-  const frame = document.getElementById("frame");
+    <div class="card">
+      <h3>Oyna tozalash</h3>
+      <p>Yuqori sifatli professional cleaning xizmat.</p>
+    </div>
 
-  function openPage(page) {
-    frame.src = page;
-  }
+    <div class="card">
+      <h3>Ta’mirlash</h3>
+      <p>Singan yoki shikastlangan oynalarni tiklash.</p>
+    </div>
 
-  function refreshPage() {
-    frame.contentWindow.location.reload();
-  }
+  </div>
+</section>
 
-  function goBack() {
-    frame.contentWindow.history.back();
-  }
+<section id="contact">
+  <h2>Bog‘lanish</h2>
 
-  function closePage() {
-    frame.src = "about:blank";
-  }
-</script>
+  <div class="contact">
+    <form>
+      <input type="text" placeholder="Ismingiz" required />
+      <input type="tel" placeholder="Telefon raqam" required />
+      <textarea rows="4" placeholder="Xabar..." required></textarea>
+      <button type="submit">Yuborish</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 Glass Service | Barcha huquqlar himoyalangan
+</footer>
 
 </body>
 </html>
